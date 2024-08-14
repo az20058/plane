@@ -12,7 +12,7 @@ export default function Home() {
     const dateRef = useRef<HTMLInputElement>(null);
     let view:string = "829,091,839,019";
     let nowView:string = "17189";
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(1); //승객 수
     const today = new Date().toISOString().slice(0,10);
 
     function searchCity() {
