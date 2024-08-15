@@ -12,7 +12,7 @@ export default function Home() {
     const dateRef = useRef<HTMLInputElement>(null);
     let view:string = "829,091,839,019";
     let nowView:string = "17189";
-    const [quantity, setQuantity] = useState(1); //승객 수
+    const [quantity, setQuantity] = useState<number>(1); //승객 수
     const today = new Date().toISOString().slice(0,10);
 
     function searchCity() {
@@ -40,10 +40,10 @@ export default function Home() {
                 <div className="searchWrapper sm:w-full">
                     <div>
                         <select ref={depCityRef}>
-                            <option value="서울">서울</option>
-                            <option value="제주">제주</option>
-                            <option value="부산">부산</option>
-                            <option value="광주">광주</option>
+                            <option value="NAARKSS">서울</option>
+                            <option value="NAARKPC">제주</option>
+                            <option value="NAARKPK">부산</option>
+                            <option value="NAARKJJ">광주</option>
                         </select>
                     </div>
                     {/* <input type="text" ref={depCityRef} id="searchCity" placeholder="출발지를 입력하세요"/> */}
@@ -52,10 +52,10 @@ export default function Home() {
                     
                     <div>
                         <select ref={arrCityRef}>
-                            <option value="제주">제주</option>
-                            <option value="서울">서울</option>
-                            <option value="부산">부산</option>
-                            <option value="광주">광주</option>
+                            <option value="NAARKPC">제주</option>
+                            <option value="NAARKSS">서울</option>
+                            <option value="NAARKPK">부산</option>
+                            <option value="NAARKJJ">광주</option>
                         </select>
                     </div>
                     {/* <input type="text" ref={arrCityRef} id="searchCity" placeholder="도착지를 입력하세요"/> */}
