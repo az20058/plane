@@ -6,6 +6,8 @@ interface flight {
     vihicleId: string;
 }
 
+//redux를 써야 하나??
+
 export default async function FlightList(props:any) {
     const param = props.searchParams;
     const currentTime = new Date();
