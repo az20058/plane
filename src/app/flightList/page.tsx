@@ -38,6 +38,7 @@ export default async function FlightList(props:any) {
     const list2 = realList.filter((item)=>item!==null);
     
     return (
+        //param.korDep, param.korArr 를 pay 컴포넌트의 props로 넣어줘야 됨.
         <></>
     )
 }

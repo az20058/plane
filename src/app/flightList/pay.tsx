@@ -1,22 +1,35 @@
 import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
 import { useStore } from '../store';
+import axios from "axios";
 
 interface FlightProps {
-    flightId: string,
+    planeId: string,
     depTime: string,
     arrTime: string,
     date: string,
     airLine: string,
-    prestigeCharge: number,
-    economyCharge: number
+    depCity: string,
+    arrCity: string
 }
 
-export default function Pay({flightId, depTime, arrTime, date, airLine, prestigeCharge, economyCharge}:FlightProps) {
-    
+export default function Pay(props: any, {planeId, depTime, arrTime, date, airLine, depCity, arrCity}:FlightProps) {
+    const {price} = useStore();
+    const param = props.searchParams;
+
     //console.log(flightId);
-    function processPay(){
-        redirect(`/reservation/${date+flightId.toString()}`);
+    async function processPay(){
+        const res = await axios.post(``, {
+            airLine,
+            flightId: planeId,
+            depTime,
+            arrTime,
+            payPrice: price,
+            depCity,
+            arrCity
+        });
+        const id = await res.data;
+
+        redirect(`/reservation/${id}`);
     }
 
     return (

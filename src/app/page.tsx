@@ -20,7 +20,8 @@ export default function Home() {
     function searchCity() {
       if(depCityRef.current&&arrCityRef.current&&dateRef.current) {
         setsQuantity(quantity);
-        router.push(`/flightList?depCity=${depCityRef.current.value.trim()}&arrCity=${arrCityRef.current.value.trim()}&date=${dateRef.current.value.replace(/-/g, "")}`);
+        router.push(`/flightList?depCity=${depCityRef.current.value.trim()}&arrCity=${arrCityRef.current.value.trim()}&date=${dateRef.current.value.replace(/-/g, "")}&
+        korDep=${depCityRef.current.options[depCityRef.current.selectedIndex].text}&korArr=${arrCityRef.current.options[arrCityRef.current.selectedIndex].text}`);
       }
     }
 
