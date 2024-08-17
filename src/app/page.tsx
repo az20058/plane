@@ -4,8 +4,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import {Button} from "react-bootstrap"
+import { useStore } from "./store";
 
 export default function Home() {
+    const {setsQuantity} = useStore();
     const router = useRouter();
     const arrCityRef = useRef<HTMLSelectElement>(null); //도착 도시 이름
     const depCityRef = useRef<HTMLSelectElement>(null); //출발 도시 이름
@@ -16,8 +18,11 @@ export default function Home() {
     const today = new Date().toISOString().slice(0,10);
 
     function searchCity() {
-      if(depCityRef.current&&arrCityRef.current&&dateRef.current)
-        router.push(`/flightList?depCity=${depCityRef.current.value.trim()}&arrCity=${arrCityRef.current.value.trim()}&date=${dateRef.current.value.replace(/-/g, "")}&quantity=${quantity}`);
+      if(depCityRef.current&&arrCityRef.current&&dateRef.current) {
+        setsQuantity(quantity);
+        router.push(`/flightList?depCity=${depCityRef.current.value.trim()}&arrCity=${arrCityRef.current.value.trim()}&date=${dateRef.current.value.replace(/-/g, "")}&
+        korDep=${depCityRef.current.options[depCityRef.current.selectedIndex].text}&korArr=${arrCityRef.current.options[arrCityRef.current.selectedIndex].text}`);
+      }
     }
 
     function plusQuantity() {
