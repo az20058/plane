@@ -14,12 +14,12 @@ interface FlightProps {
 
 export default function Pay(props: any, {planeId, depTime, arrTime, date, airLine, depCity, arrCity}:FlightProps) {
     const {price} = useStore();
-    const param = props.searchParams;
 
     //console.log(flightId);
     async function processPay(){
         const res = await axios.post(``, {
             airLine,
+            date,
             flightId: planeId,
             depTime,
             arrTime,
