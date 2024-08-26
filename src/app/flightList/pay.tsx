@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { useStore } from '../store';
+import { useStore } from '../../store/store';
 import axios from "axios";
 
 interface FlightProps {
