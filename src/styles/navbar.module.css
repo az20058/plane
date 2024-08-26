@@ -1,0 +1,31 @@
+.pageWrapper {
+    height: 101px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuWrapper {
+    display: flex;
+    gap: 70px;
+}
+
+.logo {
+    margin-left: 29px;
+}
+
+.menuItem {
+    font-family: 'Pretendard-bold';
+}
+
+.user {
+    margin-right: 47px;
+}
+
+.user span {
+    font-family: 'Pretendard-extraBold';
+}
+
+.username {
+    color: rgba(32, 103, 209, 1);
+}

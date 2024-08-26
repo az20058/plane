@@ -1,5 +1,5 @@
 "use client";
-import { useStore } from "../store";
+import { useStore } from "../../store/store";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import cookie from 'js-cookie';

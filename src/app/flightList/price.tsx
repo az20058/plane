@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import cookie from 'js-cookie'
-import { useStore } from "../store";
+import { useStore } from "../../store/store";
 
 interface ChargeProps {
     economyCharge: number,

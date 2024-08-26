@@ -4,7 +4,7 @@ import axios from "axios";
 import cookie from "js-cookie";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useStore } from "@/app/store";
+import { useStore } from "@/app/store/store";
 
 
 export default function finalRes(props:any) {
