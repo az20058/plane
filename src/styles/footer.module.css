@@ -1,0 +1,43 @@
+.pageWrapper {
+    position: relative;
+    background-color: #2067D1;
+    height: 239px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 30px 30px 0 0;
+}
+
+.contentWrapper {
+    position: absolute;
+    top: 55px;
+    left: 68px;
+    display: flex;
+    width: 100%;
+}
+
+.contentWrapper > div {
+    flex: 1;
+}
+
+.menu {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu span {
+    font-family: 'Pretendard-extraBold';
+    margin-bottom: 22px;
+    font-size: 23px;
+}
+
+.menu button {
+    text-align: left;
+    font-family: 'Pretendard';
+}
+
+.vector {
+    position: relative;
+    top: 95px;
+    left: 100px;
+}

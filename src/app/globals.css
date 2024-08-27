@@ -13,6 +13,11 @@
   src: url('../../public/fonts/Pretendard-ExtraBold.ttf'); /* 폰트 파일의 위치 */
 }
 
+@font-face {
+  font-family: 'Pretendard'; /* 사용할 폰트의 이름을 정의 */
+  src: url('../../public/fonts/Pretendard-Regular.ttf'); /* 폰트 파일의 위치 */
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

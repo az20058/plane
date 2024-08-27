@@ -20,7 +20,7 @@ export default function Navbar() {
                     <button>회원가입</button>
                 </div>
                 <div className={styles.menuItem}>
-                    <button>구매내역</button>
+                    <button>구매 내역</button>
                 </div>
             </div>
             <div className={styles.user}>
