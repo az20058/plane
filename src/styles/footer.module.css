@@ -36,8 +36,8 @@
     font-family: 'Pretendard';
 }
 
-.vector {
+.vector img {
     position: relative;
-    top: 95px;
     left: 100px;
+    top: 95px;
 }
