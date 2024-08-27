@@ -1,0 +1,19 @@
+.pageWrapper {
+    background-image: url('../../../public/images/mainbg.svg');
+    background-position: center -1px;
+    height: 1401px;
+}
+
+.sloganWrapper {
+    width: 772px;
+    position: relative;
+    margin: 0 auto;
+    top: 236px;
+}
+
+.textWrapper {
+    width: 759px;
+    position: relative;
+    margin-left: 112px;
+    margin-top: 476px;
+}

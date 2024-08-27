@@ -1,5 +1,6 @@
 .pageWrapper {
     position: relative;
+    z-index: 100;
     background-color: #2067D1;
     height: 239px;
     width: 90%;
