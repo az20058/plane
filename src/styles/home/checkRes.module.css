@@ -1,0 +1,84 @@
+.pageWrapper {
+    background-image: url('../../../public/images/maingbg2.svg');
+    height: 2117px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.checkResWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Pretendard';
+}
+
+.header label {
+    color: #2067D1;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 22px;
+}
+
+.header h2 {
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 70px;
+    margin-bottom: 20px;
+}
+
+.header span {
+    font-size: 23px;
+}
+
+.line {
+    border: 1px solid #ADADAD;
+    height: 1px;
+    width: 150%;
+    margin-top: 113px;
+    margin-bottom: 36px;
+}
+
+.imgWrapper img {
+    width: 66px;
+    height: 66px;
+}
+
+.spanWrapper span:first-child {
+    font-weight: 800;
+}
+
+.checkRes {
+    margin-top: 58px;
+    font-family: 'Pretendard';
+}
+
+.btnWrapper {
+    gap: 10px;
+    display: flex;
+}
+
+.btnWrapper button {
+    width: 17%;
+    height: 71px;
+    border: 0.68px solid #B2B2B2;
+    border-radius: 17px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.findRes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    border: 1px solid #B2B2B2;
+    border-radius: 30px;
+    height: 209px;
+}

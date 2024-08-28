@@ -1,0 +1,106 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 350px;
+  z-index: 1000;
+    border-radius: 40px;
+    background-color: #2067D1;
+    height: 700px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 102px;
+    color: white;
+}
+
+.header h2 {
+    margin-top: 10px;
+    font-size: 89px;
+    font-family: 'Pretendard-extraBold';
+}
+
+.header span {
+    font-size: 28px;
+    font-family: 'Pretendard';
+}
+
+.searchWrapper {
+  margin-top: 24px;
+  width: 80%;
+  height: 110px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  background-color: white;
+  border-radius: 14px;
+  padding:0;
+}
+
+.selectCity, .searchWrapper button {
+  font-family: 'Pretendard-bold';
+  font-size: 30px;
+  border-radius: 6px;
+}
+
+.cityWrapper {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+  width: 20%;
+}
+
+#planeIcon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  height: 92vh;
+  left: 10%;
+}
+
+.selectQuantity {
+  display: flex;
+  justify-content: center;
+  gap: 27px;
+  align-items: center;
+}
+
+.selectQuantity button {
+  background-color: #2067D1;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.search {
+  position: relative;
+  align-items: center;
+}
+
+#searchIcon {
+  display: inline-block;
+}
+
+.mainSearch {
+  background-color: #2067D1;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  color: white;
+}
