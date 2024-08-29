@@ -1,44 +1,17 @@
-import axios from "axios";
+import Header from '@/components/Headers/Header';
+import styles from '../../styles/flightList/flightList.module.css';
+import List from '@/components/flightList/List';
 
-interface flight {
-    economyCharge: number,
-    depPlandTime: string;
-    vihicleId: string;
-}
-
-//redux를 써야 하나??
-
-export default async function FlightList(props:any) {
+export default function FlightList(props:any) {
     const param = props.searchParams;
-    const currentTime = new Date();
-    const year = currentTime.getFullYear();
-    const month = ("0"+(currentTime.getMonth()+1)).slice(-2);
-    const day = currentTime.getDate().toString().padStart(2, '0');
-    const hours = ("0"+currentTime.getHours()).slice(-2);
-    const minutes = ("0"+currentTime.getMinutes()).slice(-2);
-    const formattedTime = `${year}${month}${day}${hours}${minutes}`;
+    console.log(param);
 
-    const res = await axios.get(`http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList?serviceKey=${process.env.NEXT_FLIGHT_API_KEY}&numOfRows=100&depAirportId=${param.depCity}&arrAirportId=${param.arrCity}&depPlandTime=${param.date}`);
-    const list:flight[] = await res.data.response.body.items.item;
-    //economyCharge가 있고 이미 시간이 지난 비행편 제외
-    const filteredList = list.filter(data => data.economyCharge != null && parseInt(data.depPlandTime)>parseInt(formattedTime));
-    //승객 수(quantity)보다 비행편의 남은 자리 수가 더 적은 비행편 제외
-    const realList = await Promise.all(filteredList.map(async data => {
-        const response = await axios.get(`${process.env.NEXT_SERVER_URL}/seat/num/${param.date + data.vihicleId}`);
-        const res1 = response.data;
-        console.log(res1);
-        console.log(param.date+data.vihicleId);
-        if (res1 === 0 || res1 >= param.quantity) {
-            return data;
-        }
-        else
-            return null;
-    }));
-    //realList에서 null이 된(조건에서 제외된) 항공편 필터링
-    const list2 = realList.filter((item)=>item!==null);
-    
     return (
         //param.korDep, param.korArr 를 pay 컴포넌트의 props로 넣어줘야 됨.
-        <></>
+        <div className={styles.pageWrapper}>
+            <Header msg1='#티켓서치' msg2='항공편 조회하기' msg3='사용자가 계획한 상세 일정에 맞는 비행기를 확인해 보세요'/>
+            <List param={param}/>
+        </div>
+
     )
 }

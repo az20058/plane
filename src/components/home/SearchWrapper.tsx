@@ -5,6 +5,7 @@ import styles from '@/styles/home/searchFlight.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
+import SearchBtn from '../Buttons/SearchBtn';
 
 export default function SearchWrapper() {
     const {setsQuantity} = useStore();
@@ -19,7 +20,7 @@ export default function SearchWrapper() {
       if(depCityRef.current&&arrCityRef.current&&dateRef.current) {
         setsQuantity(quantity);
         router.push(`/flightList?depCity=${depCityRef.current.value.trim()}&arrCity=${arrCityRef.current.value.trim()}&date=${dateRef.current.value.replace(/-/g, "")}&
-        korDep=${depCityRef.current.options[depCityRef.current.selectedIndex].text}&korArr=${arrCityRef.current.options[arrCityRef.current.selectedIndex].text}`);
+        korDep=${depCityRef.current.options[depCityRef.current.selectedIndex].text}&korArr=${arrCityRef.current.options[arrCityRef.current.selectedIndex].text}&quantity=${quantity}`);
       }
     }
 
@@ -72,9 +73,7 @@ export default function SearchWrapper() {
                     <button onClick={plusQuantity}>+</button>
                 </div>
             </div>
-            <div>
-                <button className={styles.mainSearch} onClick={searchCity}>검색</button>{' '}
-            </div>
+            <SearchBtn onClick={searchCity}/>
         </div>
     )
 }

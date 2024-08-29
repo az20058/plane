@@ -1,0 +1,76 @@
+.flightsHeader {
+    background-color: #2067D1;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-around;
+    padding: 0 60px;
+    border-radius: 11px;
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.flightsHeader div {
+    width: 20%;
+    text-align: center;
+}
+
+.flightsHeader div:nth-child(4) {
+    width: 10%;
+}
+
+.flightItemWrapper {
+    width: 90%;
+    margin: 96px auto 0 auto;
+}
+
+.flightItem {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    background-color:#fff;
+    padding : 15px 10px;
+    border : solid black 1px;
+    border-radius: 11px;
+    margin: 4px auto;
+    height: 166px;
+    box-shadow: 0 0 7px 0 #888888;
+    margin-top: 20px;
+}
+  
+.flightItem > div {
+    text-align: center;
+    flex:1;
+    margin: 0 auto;
+}
+
+.airLine {
+    font-weight: 180;
+  }
+  
+  .flexTime {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .noneItem {
+    display: none;
+  }
+  
+  #xprice {
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+
+  .arrow {
+    display: inline-block;
+    width: 76px;
+    height: 8px;
+    background: url('https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_fromto_line.png') no-repeat center;
+    font-size: 0px;
+    background-size: 76px;
+    margin: auto 10px;
+  }

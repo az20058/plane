@@ -94,13 +94,3 @@
 #searchIcon {
   display: inline-block;
 }
-
-.mainSearch {
-  background-color: #2067D1;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
-  color: white;
-}
