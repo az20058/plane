@@ -4,7 +4,6 @@ import List from '@/components/flightList/List';
 
 export default function FlightList(props:any) {
     const param = props.searchParams;
-    console.log(param);
 
     return (
         //param.korDep, param.korArr 를 pay 컴포넌트의 props로 넣어줘야 됨.

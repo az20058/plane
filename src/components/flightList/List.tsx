@@ -1,7 +1,10 @@
 import axios from "axios";
 import styles from '../../styles/flightList/flightList.module.css';
-import Price from "@/app/flightList/price";
-import Pay from "@/app/flightList/pay";
+import direction from '@/../public/images/direction.svg';
+import Image from "next/image";
+import Pay from "./pay";
+import Price from "./price";
+import AirLine from "./AirLine";
 
 interface flight {
     economyCharge: number,
@@ -10,8 +13,6 @@ interface flight {
     prestigeCharge: number,
     vihicleId: string,
     airlineNm: string,
-    depAirportNm: string,
-    arrAirportNm: string,
 }
 
 export default async function FlightList({param}:any) {
@@ -29,10 +30,8 @@ export default async function FlightList({param}:any) {
     const filteredList = list.filter(data => data.economyCharge != null && parseInt(data.depPlandTime)>parseInt(formattedTime));
     //승객 수(quantity)보다 비행편의 남은 자리 수가 더 적은 비행편 제외
     const realList = await Promise.all(filteredList.map(async data => {
-        const response = await axios.get(`${process.env.NEXT_SERVER_URL}/seat/num/${param.date + data.vihicleId}`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/seat/num/${param.date + data.vihicleId}`);
         const res1 = response.data;
-        console.log(res1);
-        console.log(param.date+data.vihicleId);
         if (res1 === 0 || res1 >= param.quantity) {
             return data;
         }
@@ -57,11 +56,9 @@ export default async function FlightList({param}:any) {
                 list2.map((data, index)=>{
                     return(
                         <div className={styles.flightItem} key={index}>
-                            <div>
-                                <span className={styles.airLine}>{data.airlineNm}</span>
-                            </div>
-                            <div className={styles.flexTime}>
-                                <div className="fromTo">
+                            <AirLine airlineNm={data.airlineNm}/>
+                            {/* <div className={styles.flexTime}>
+                                <div className={styles.fromTo}>
                                     <div>{data.depAirportNm}</div>
                                     <div>{data.depPlandTime.toString().slice(-4)}</div>
                                 </div>
@@ -70,12 +67,32 @@ export default async function FlightList({param}:any) {
                                     <div>{data.arrAirportNm}</div>
                                     <div>{data.arrPlandTime.toString().slice(-4)}</div>
                                 </div>
+                            </div> */}
+                            <div>
+                                <span style={{fontWeight:"600"}}>{data.vihicleId}</span>
+                            </div>
+                            <div>
+                                <div className={styles.fromTo}>
+                                    <p>{param.korDep}</p>
+                                    <p>{data.depPlandTime.toString().slice(8,10)}시 {data.depPlandTime.toString().slice(10)}분</p>
+                                </div>
+                            </div>
+                            <div>
+                                <Image src={direction} alt="direction"/>
+                            </div>
+                            <div>
+                                <div className={styles.fromTo}>
+                                    <p>{param.korArr}</p>
+                                    <p>{data.arrPlandTime.toString().slice(8,10)}시 {data.arrPlandTime.toString().slice(10)}분</p>
+                                </div>
                             </div>
                             {/* <Price economyCharge={data.economyCharge} prestigeCharge={data.prestigeCharge}/> */}
                             <div>
-                                <Price economyCharge={data.economyCharge} prestigeCharge={data.prestigeCharge}/>
+                                <Price economyCharge={data.economyCharge}/>
                             </div>
-                            <Pay planeId={formattedTime + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr}/>
+                            <div>
+                                <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr}/>
+                            </div>   
                         </div>
                     )    
                 })

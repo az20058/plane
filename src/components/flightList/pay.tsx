@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useStore } from '../../store/store';
 import axios from "axios";
+import { useStore } from "@/store/store";
 
 interface FlightProps {
     planeId: string,
@@ -19,7 +19,7 @@ export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, 
 
     //console.log(flightId);
     async function processPay(){
-        const res = await axios.post(``, {
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/flight`, {
             airLine,
             date,
             flightId: planeId,
@@ -31,10 +31,13 @@ export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, 
         });
         const id = await res.data;
 
-        router.push(`/reservation/${id}`);
+        // router.push(`/reservation/${id}`);
     }
 
     return (
-        <></>
+        <button onClick={processPay}
+            style={{backgroundColor:"#2067D1", color:"white", borderRadius:"9px", padding:"12px 20px", fontSize:"18px",
+            fontFamily:"Pretendard", fontWeight:"700"
+        }}>예약하기</button>
     )
 }

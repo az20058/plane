@@ -5,10 +5,9 @@ import { useStore } from "../../store/store";
 
 interface ChargeProps {
     economyCharge: number,
-    prestigeCharge: number
 }
 
-export default function Price({economyCharge, prestigeCharge}:ChargeProps) {
+export default function Price({economyCharge}:ChargeProps) {
     const {setPrice} = useStore();
     const [charge, setCharge] = useState<number>(economyCharge);
 
@@ -23,7 +22,10 @@ export default function Price({economyCharge, prestigeCharge}:ChargeProps) {
     }, [])
 
     return (
-        //charge 노출
-        <></>
+        //로그인을 하면 두번째 p태그에 할인가격 표출
+        <>
+            <p>{economyCharge} 원</p>
+            <p></p>
+        </>
     )
 }
