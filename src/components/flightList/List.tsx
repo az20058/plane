@@ -57,17 +57,6 @@ export default async function FlightList({param}:any) {
                     return(
                         <div className={styles.flightItem} key={index}>
                             <AirLine airlineNm={data.airlineNm}/>
-                            {/* <div className={styles.flexTime}>
-                                <div className={styles.fromTo}>
-                                    <div>{data.depAirportNm}</div>
-                                    <div>{data.depPlandTime.toString().slice(-4)}</div>
-                                </div>
-                                <div className={styles.arrow}></div>
-                                <div>
-                                    <div>{data.arrAirportNm}</div>
-                                    <div>{data.arrPlandTime.toString().slice(-4)}</div>
-                                </div>
-                            </div> */}
                             <div>
                                 <span style={{fontWeight:"600"}}>{data.vihicleId}</span>
                             </div>
@@ -87,12 +76,8 @@ export default async function FlightList({param}:any) {
                                 </div>
                             </div>
                             {/* <Price economyCharge={data.economyCharge} prestigeCharge={data.prestigeCharge}/> */}
-                            <div>
-                                <Price economyCharge={data.economyCharge}/>
-                            </div>
-                            <div>
-                                <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr}/>
-                            </div>   
+                            <Price economyCharge={data.economyCharge}/>
+                            <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr}/>   
                         </div>
                     )    
                 })

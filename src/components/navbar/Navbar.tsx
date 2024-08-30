@@ -1,17 +1,14 @@
-"use client";
 import styles from '../../styles/navbar.module.css';
 import Image from 'next/image';
 import navLogo from '../../../public/images/navLogo.svg';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Navbar() {
-    const router = useRouter();
-
     return (
         <div className={styles.pageWrapper}>
             <div className={styles.menuWrapper}>
                 <div className={styles.logo}>
-                    <Image src={navLogo} alt='Logo in Navbar'/>
+                    <Link href="/"><Image src={navLogo} alt='Logo in Navbar'/></Link>
                 </div>
                 <div className={styles.menuItem}>
                     <button>로그인</button>

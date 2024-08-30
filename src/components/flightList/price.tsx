@@ -23,9 +23,9 @@ export default function Price({economyCharge}:ChargeProps) {
 
     return (
         //로그인을 하면 두번째 p태그에 할인가격 표출
-        <>
+        <div>
             <p>{economyCharge} 원</p>
             <p></p>
-        </>
+        </div>
     )
 }

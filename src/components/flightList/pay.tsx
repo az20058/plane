@@ -31,13 +31,15 @@ export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, 
         });
         const id = await res.data;
 
-        // router.push(`/reservation/${id}`);
+        router.push(`/reservation/?id=${id}`);
     }
 
     return (
-        <button onClick={processPay}
+        <div>
+            <button onClick={processPay}
             style={{backgroundColor:"#2067D1", color:"white", borderRadius:"9px", padding:"12px 20px", fontSize:"18px",
             fontFamily:"Pretendard", fontWeight:"700"
-        }}>예약하기</button>
+            }}>예약하기</button>
+        </div>
     )
 }
