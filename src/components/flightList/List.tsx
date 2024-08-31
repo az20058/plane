@@ -5,6 +5,7 @@ import Image from "next/image";
 import Pay from "./pay";
 import Price from "./price";
 import AirLine from "./AirLine";
+import searchIcon from '@/../public/images/searchIcon.svg';
 
 interface flight {
     economyCharge: number,
@@ -82,7 +83,14 @@ export default async function FlightList({param}:any) {
                     )    
                 })
             ) : (
-                <div>&quot;{param.depCity}행 ~ {param.arrCity}행&quot;에 대한 검색 결과가 없습니다.</div>
+                <div className={styles.notSearched}>
+                    <div className={styles.textWrapper}>
+                        <span>해당 조건의</span>
+                        <span>&quot;검색 결과가 없습니다</span>
+                        <span>, 다시 검색해 주세요</span>
+                        <Image src={searchIcon} alt="searchIcon"/>
+                    </div>
+                </div>
             )}
         </div>
     )

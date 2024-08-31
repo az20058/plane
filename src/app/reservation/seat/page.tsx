@@ -1,5 +1,5 @@
 "use client";
-import { useStore } from "@/app/store/store";
+import { useStore } from "@/store/store";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";

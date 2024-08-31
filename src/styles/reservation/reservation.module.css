@@ -1,0 +1,157 @@
+.pageWrapper {
+    width: 84%;
+    font-family: 'Pretendard';
+    margin: 79px auto 0 auto;
+}
+
+.header {
+    margin-bottom: 55px;
+}
+
+.header label {
+    font-family: 'Pretendard-extraBold';
+    font-size: 39px;
+}
+
+.userForm > div {
+    margin-bottom: 110px;
+}
+
+.userForm label {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.userForm input {
+    border: 1px solid #ADADAD;
+    padding: 15px 20px;
+    font-size: 22px;
+    border-radius: 15px;
+}
+
+.name {
+    display: flex;
+    gap: 36px;
+}
+
+.name input {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.name > div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.email > div {
+    display: flex;
+    align-items: center;
+}
+
+.email > div > span {
+    margin: 0 20px;
+    font-weight: 800;
+    font-size: 40px;
+    color: #C5C5C5;
+}
+
+.email > label {
+    margin-bottom: 22px;
+}
+
+.email input {
+    width: 40%;
+}
+
+.email > div {
+    margin-top: 22px;
+}
+
+.others {
+    display: flex;
+}
+
+.others > div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 22px;
+}
+
+.others > div:first-child {
+    width: 40%;
+}
+
+.selectWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    font-size: 22px;   
+}
+
+.selectWrapper::after {
+    content: '';
+    position: absolute;
+    background-image: url('../../../public/images/selectIcon.svg');
+    left: 82%;
+    width: 33px;
+    height: 39px;
+    top: 13px;
+    pointer-events: none;
+}
+
+.selectWrapper select {
+    width: 100%;
+    border: 1px solid #ADADAD;
+    padding: 15px 20px;
+    border-radius: 15px; 
+    appearance: none; /* Remove the default select arrow */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+}
+
+.btnWrapper {
+    position: relative;
+    height: 67px;
+    width: 20%;
+    margin: 0 auto 105px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
+.submitBtn {
+    width: 100%;
+}
+
+.submitBtn::after {
+    content: '';
+    background-image: url('../../../public/images/submitIcon.svg');
+    position: absolute;
+    top: 35%;
+    right: 10%;
+    width: 18px;
+    pointer-events: none;
+    height: 18px;
+}
+
+.submitBtn button {
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    padding: 14px 30px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 16px;
+}
+
+.line {
+    border: 1px solid #ADADAD;
+    margin-bottom: 46px;
+}
+
