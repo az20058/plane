@@ -1,0 +1,79 @@
+.pageWrapper {
+    width: 100%;
+}
+
+.resSeat {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.seatWrapper {
+    width: 100%;
+    height: 430px;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.front {
+    flex: 0 0 auto;
+    width: 1452px;
+    background-image: url('../../../public/images/planeFront.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.mid {
+    flex: 0 0 auto;
+    width: 1225px;
+    background-image: url('../../../public/images/planeMid.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.back {
+    flex: 0 0 auto;
+    width: 1336px;
+    background-image: url('../../../public/images/planeBack.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.seatPageWrapper {
+    display: flex;
+    margin-left: 50%;
+    margin-top: 36px;
+    gap: 10%;
+}
+
+.seats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px 0;
+}
+
+.seat {
+    position: relative;
+    z-index: 1000;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40% 5px 5px 40%;
+    border: 0.18px solid #d2d2d2;
+    font-family: 'Pretendard-extraBold';
+    font-size: 12px;
+    background-color: white;
+    box-shadow: 0 0 3.53px 0 rgba(0, 0, 0, 0.1);
+}
+
+.seat:nth-child(2) {
+    margin-bottom: 20px;
+}
+
+.seat:nth-last-child(2) {
+    margin-top: 20px;
+}

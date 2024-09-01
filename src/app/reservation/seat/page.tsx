@@ -1,4 +1,5 @@
 "use client";
+import styles from '@/styles/reservation/seat.module.css';
 import { useStore } from "@/store/store";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -23,7 +24,7 @@ export default function Seat(props:any) {
         } 
         const seatFetch = async () => {
             try {
-                const res = await axios.get(`${process.env.NEXT_SERVER_URL}/seat/${props.params.id}`);
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/seat/${props.params.id}`);
                 setData(res.data);
             } catch (error) {
                 console.error("Error fetching seat data:", error);
@@ -61,7 +62,7 @@ export default function Seat(props:any) {
         }
 
         for (let seatId of selectedSeatsId) {
-            const res = await axios.get(`${process.env.NEXT_SERVER_URL}/find/${seatId}`);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/find/${seatId}`);
             if (res.data === 1) {
                 alert("이미 예약중인 좌석입니다.");
                 window.location.reload();
@@ -70,11 +71,11 @@ export default function Seat(props:any) {
         }
 
         for (let seatId of selectedSeatsId) {
-            await axios.put(`${process.env.NEXT_SERVER_URL}/seat/tmpReservation/${seatId}`, {
+            await axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/seat/tmpReservation/${seatId}`, {
                 tmpRes: "true"
                 //findByTmpRes로 true
             });
-            await axios.get(`${process.env.NEXT_SERVER_URL}/tmpRes/${seatId}`);
+            await axios.get(`${process.env.NEXT_PUBLIC_NEXT_SERVER_URL}/tmpRes/${seatId}`);
         }
 
         const query = "?" + queryString.stringify({ selectedSeatsId });
@@ -82,8 +83,57 @@ export default function Seat(props:any) {
     }
     
     return (
-        <>
-        
-        </>
+        <div className={styles.pageWrapper}>
+            <div className={styles.resSeat}>
+                <div className={styles.seatWrapper}>
+                    <div className={styles.front}>
+                        <div className={styles.seatPageWrapper}>
+                            <div className={styles.seats}>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                            </div>
+                            <div className={styles.seats}>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                            </div>
+                            <div className={styles.seats}>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                                <button className={styles.seat}>A-7</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.mid}>
+
+                    </div>
+                    <div className={styles.back}>
+
+                    </div>
+                </div>
+                <div className={styles.seatList}>
+
+                </div>
+                <div className={styles.btnWrapper}>
+
+                </div>
+            </div>
+        </div>
     )
 }
