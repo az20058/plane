@@ -1,18 +1,29 @@
 "use client";
 import styles from '@/styles/reservation/seat.module.css';
-import { useStore } from "@/store/store";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
 import axios from "axios";
 
+interface SeatDto {
+    num: number,
+    buyTime: string,
+    resKey: string,
+    seatCode: string,
+    email: string,
+    username: string,
+    isRes: string,
+    tmpRes: string
+}
+
 export default function Seat(props:any) {
-    const {quantity} = useStore();
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<SeatDto[]>([]);
     const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
     const [selectedSeatsId, setSelectedSeatsId] = useState<number[]>([]);
     const router = useRouter();
     const param = useSearchParams();
+    const id = param.get("id");
+    const quantity = parseInt(param.get("quantity")||"0");
     const type = param.get("type");
     const [seats, setSeats] = useState<string[]>([]);
     const [count, setCount] = useState<number>(quantity);
@@ -24,7 +35,7 @@ export default function Seat(props:any) {
         } 
         const seatFetch = async () => {
             try {
-                const res = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/seat/${props.params.id}`);
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/seat/${id}`);
                 setData(res.data);
             } catch (error) {
                 console.error("Error fetching seat data:", error);
@@ -81,6 +92,25 @@ export default function Seat(props:any) {
         const query = "?" + queryString.stringify({ selectedSeatsId });
         router.push('./seat/finalRes' + query);
     }
+
+    function renderSeat() {
+        const seatRows = [];
+        const seatsPerLabel = 8;
+        
+        for(let i=0;i<11;i++){
+            const tmpRows = (
+                <div key={i} className={styles.seats}>
+                    {data.slice(i*seatsPerLabel, i*seatsPerLabel+seatsPerLabel).map((item, index)=>{
+                        return(
+                            <button key={index} className={styles.seat}>{item.seatCode}</button>
+                        )
+                    })}
+                </div>
+            )
+            seatRows.push(tmpRows);
+        }
+        return seatRows;
+    }
     
     return (
         <div className={styles.pageWrapper}>
@@ -88,44 +118,10 @@ export default function Seat(props:any) {
                 <div className={styles.seatWrapper}>
                     <div className={styles.front}>
                         <div className={styles.seatPageWrapper}>
-                            <div className={styles.seats}>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                            </div>
-                            <div className={styles.seats}>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                            </div>
-                            <div className={styles.seats}>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                                <button className={styles.seat}>A-7</button>
-                            </div>
+                            {renderSeat()}
                         </div>
                     </div>
-                    <div className={styles.mid}>
-
-                    </div>
-                    <div className={styles.back}>
-
-                    </div>
+                    <div className={styles.back}/>
                 </div>
                 <div className={styles.seatList}>
 

@@ -24,6 +24,8 @@
 }
 
 .mid {
+    position: relative;
+    right: 88%;
     flex: 0 0 auto;
     width: 1225px;
     background-image: url('../../../public/images/planeMid.svg');
@@ -33,6 +35,9 @@
 }
 
 .back {
+    position: relative;
+    right: 51%;
+    margin-right: -50%;
     flex: 0 0 auto;
     width: 1336px;
     background-image: url('../../../public/images/planeBack.svg');
@@ -43,15 +48,30 @@
 
 .seatPageWrapper {
     display: flex;
-    margin-left: 50%;
-    margin-top: 36px;
-    gap: 10%;
+    margin-top: 27px;
+    gap: 40px;
+}
+
+.front .seatPageWrapper {
+    margin-left: 32%;
+}
+
+.back .seatPageWrapper {
+    margin-left: 0;
 }
 
 .seats {
     display: flex;
     flex-direction: column;
     gap: 6px 0;
+}
+
+.seats:nth-child(3) {
+    margin-right: 10%;
+}
+
+.seats:nth-last-child(3) {
+    margin-left: 10%;
 }
 
 .seat {
