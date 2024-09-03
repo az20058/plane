@@ -115,9 +115,8 @@
 
 .btnWrapper {
     position: relative;
-    height: 67px;
     width: 20%;
-    margin: 0 auto 105px auto;
+    margin: 50px auto 105px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -27,6 +27,6 @@ export default function finalRes(props:any) {
     console.log(passengers);
     
     return (
-        <></>
+        <>ㅎㅇ</>
     )
 }

@@ -63,10 +63,10 @@ export default function FormList(props:FormProps) {
                     <div>
                       <label>성별</label>
                       <div className={styles.selectWrapper}>
-                        <select ref={el=>{props.genderRefs.current[index]=el;}}>
-                          <option value="" selected>선택 안함</option>
-                          <option value="man">남자</option>
-                          <option value="woman">여자</option>
+                        <select defaultValue="" ref={el=>{props.genderRefs.current[index]=el;}}>
+                          <option value="">선택 안함</option>
+                          <option value="남성">남자</option>
+                          <option value="여성">여자</option>
                         </select>
                       </div>
                     </div>

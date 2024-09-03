@@ -80,7 +80,7 @@ export default function Reservtion(props:any) {
     return (
       <div className={styles.pageWrapper}>
         <FormList firstnameRefs={firstnameRefs} lastnameRefs={lastnameRefs} birthRefs={birthRefs} nationRefs={nationRefs} genderRefs={genderRefs} email1Refs={email1Refs} email2Refs={email2Refs}/>
-        <NextBtn handleSubmit={handleSubmit}/>
+        <NextBtn handleSubmit={handleSubmit} msg='내용 저장하기'/>
       </div>
     )
 }
