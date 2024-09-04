@@ -2,6 +2,8 @@ import styles from '../../styles/navbar.module.css';
 import Image from 'next/image';
 import navLogo from '../../../public/images/navLogo.svg';
 import Link from 'next/link';
+import UserInfo from './UserInfo';
+import LoginOrLogout from './LoginOrLogout';
 
 export default function Navbar() {
     return (
@@ -11,19 +13,16 @@ export default function Navbar() {
                     <Link href="/"><Image src={navLogo} alt='Logo in Navbar'/></Link>
                 </div>
                 <div className={styles.menuItem}>
-                    <button>로그인</button>
+                    <LoginOrLogout/>
                 </div>
                 <div className={styles.menuItem}>
-                    <button>회원가입</button>
+                    <Link href='/signUp'>회원가입</Link>
                 </div>
                 <div className={styles.menuItem}>
                     <button>구매 내역</button>
                 </div>
             </div>
-            <div className={styles.user}>
-                <span className={styles.username}>김예찬 님 </span>
-                <span>로그인</span>
-            </div>
+            <UserInfo/>
         </div>
     )
 }

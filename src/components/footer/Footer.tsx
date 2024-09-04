@@ -2,6 +2,8 @@ import Image from 'next/image';
 import styles from '../../styles/footer.module.css';
 import vector from '../../../public/images/vector.svg';
 import footerLogo from '../../../public/images/footerLogo.svg';
+import Link from 'next/link';
+import LoginOrLogout from '../navbar/LoginOrLogout';
 
 export default function Footer() {
     return (
@@ -17,8 +19,8 @@ export default function Footer() {
                 </div>
                 <div className={styles.menu}>
                     <span>정보</span>
-                    <button>로그인</button>
-                    <button>회원가입</button>
+                    <LoginOrLogout/>
+                    <Link href='/signUp'>회원가입</Link>
                 </div>
                 <div className={styles.vector}>
                     <Image src={vector} alt='vector'/>
