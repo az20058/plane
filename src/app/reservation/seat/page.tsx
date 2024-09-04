@@ -7,16 +7,7 @@ import axios from "axios";
 import ResSeat from '@/components/reservation/ResSeat';
 import ResList from '@/components/reservation/ResList';
 import NextBtn from '@/components/Buttons/NextBtn';
-// interface SeatDto {
-//     num: number,
-//     buyTime: string,
-//     resKey: string,
-//     seatCode: string,
-//     email: string,
-//     username: string,
-//     isRes: string,
-//     tmpRes: string
-// }
+import cookie from 'js-cookie';
 
 interface seat {
     seatCode: string,
@@ -59,6 +50,13 @@ export default function Seat(props:any) {
             return;
         }
 
+        let i=0;
+
+        for (let seat of selectedSeatsId) {
+            cookie.set("seatCode"+i, seat.seatCode);
+            i++;
+        }
+
         for (let seat of selectedSeatsId) {
             const res = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/find/${seat.seatNum}`);
             if (res.data === 1) {
@@ -72,12 +70,12 @@ export default function Seat(props:any) {
             await axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/seat/tmpReservation/${seat.seatNum}`, {
                 tmpRes: "true"
                 //findByTmpRes로 true
-            });
+            });3
             await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/tmpRes/${seat.seatNum}`);
         }
 
-        const query = "?" + queryString.stringify({ selectedSeatsId });
-        router.push('./seat/finalRes' + query);
+        const query = "&" + queryString.stringify({ selectedSeatsId: selectedSeatsId.map(seat=>seat.seatNum) });
+        router.replace(`./seat/finalRes?quantity=${quantity}` + query);
     }
     
     return (

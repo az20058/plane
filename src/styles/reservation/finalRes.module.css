@@ -1,0 +1,91 @@
+.pageWrapper {
+    font-family: 'Pretendard';
+}
+
+.fromToWrapper {
+    background-color: #2067D1;
+    border-radius: 11px;
+    height: 80px;
+    width: 85%;
+    margin: 95px auto 22px auto;
+    display: flex;
+    align-items: center;
+}
+
+.fromTo {
+    margin: auto auto;
+    display: flex;
+    color: white;
+    font-weight: 700;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fromTo img {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.passengers {
+    gap: 35px;
+    width: 88%;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: scroll;
+    padding: 0 10px;
+}
+
+.passengers::-webkit-scrollbar {
+    height: 8px; /* 스크롤바의 높이 (가로 스크롤바의 경우) */
+  }
+
+  .passengers::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바의 색상 */
+    border-radius: 10px;
+  }
+  
+  .passengers::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 스크롤바 트랙 색상 */
+  }
+
+.passenger {
+    flex: 0 0 auto;
+    border: 0.8px solid #ADADAD;
+    width: 31.4%;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.passengerNum {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.passengerBody {
+    margin-top: 40px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+}
+
+.footer {
+    width: 55%;
+    margin: 65px auto 0 auto;
+}
+
+.footer div {
+    text-align: center;
+    font-size: 22px;
+}
+
+.line {
+    margin-top: 33px;
+    border: 1px solid #ADADAD;
+    height: 1px;
+}

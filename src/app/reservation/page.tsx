@@ -73,7 +73,7 @@ export default function Reservtion(props:any) {
           cookie.set('gender'+j,gender);
           cookie.set('email'+j,email1+"@"+email2);
 
-          router.push(`/reservation/seat?id=${id}&quantity=${quantity}`);
+          router.replace(`/reservation/seat?id=${id}&quantity=${quantity}`);
         }
     } 
     

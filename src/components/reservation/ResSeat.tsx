@@ -26,7 +26,6 @@ export default function ResSeat({selectedSeatsId, handleReservation}:SeatProps) 
     const id = param.get("id");
     const type = param.get("type");
     const [seats, setSeats] = useState<string[]>([]);
-    const [count, setCount] = useState<number>(quantity);
 
     useEffect(() => {
         const seatParams = param.get("seats");

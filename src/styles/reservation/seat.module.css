@@ -17,6 +17,19 @@
     overflow-x: scroll;
 }
 
+.seatWrapper::-webkit-scrollbar {
+    height: 8px; /* 스크롤바의 높이 (가로 스크롤바의 경우) */
+  }
+
+  .seatWrapper::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바의 색상 */
+    border-radius: 10px;
+  }
+  
+  .seatWrapper::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 스크롤바 트랙 색상 */
+  }
+
 .front {
     flex: 0 0 auto;
     width: 1452px;
