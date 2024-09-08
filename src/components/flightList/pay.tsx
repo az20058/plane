@@ -10,10 +10,11 @@ interface FlightProps {
     date: string,
     airLine: string,
     depCity: string,
-    arrCity: string
+    arrCity: string,
+    msg: string
 }
 
-export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, arrCity}:FlightProps) {
+export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, arrCity, msg}:FlightProps) {
     const param = useSearchParams();
     const quantity = param.get("quantity");
     const {price} = useStore();
@@ -41,7 +42,7 @@ export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, 
             <button onClick={processPay}
             style={{backgroundColor:"#2067D1", color:"white", borderRadius:"9px", padding:"12px 20px", fontSize:"18px",
             fontFamily:"Pretendard", fontWeight:"700"
-            }}>예약하기</button>
+            }}>{msg}</button>
         </div>
     )
 }

@@ -1,10 +1,12 @@
 import Image from 'next/image'
 
 interface AirLine {
-    airlineNm: string
+    airlineNm: string,
+    flightCode: string,
+    height: number
 }
 
-export default function AirLine({airlineNm}:AirLine) {
+export default function AirLine({airlineNm, flightCode, height}:AirLine) {
     const logo: {[key:string]: string } = {
         "제주항공": "/images/jeju.svg",
         "대한항공": "/images/koreanAir.svg",
@@ -14,9 +16,10 @@ export default function AirLine({airlineNm}:AirLine) {
     }
     
     return (
-        <div>
+        <div style={{gap:"11px 0", display:'flex', flexDirection:'column'}}>
             {/* <span>{airlineNm}</span> */}
-            <Image src={logo[airlineNm]} alt='logo' width={180} height={80}/>
+            <Image src={logo[airlineNm]} alt='logo' width={180} height={height}/>
+            {flightCode?<span>{flightCode}</span>:""}
         </div>
     )
 }

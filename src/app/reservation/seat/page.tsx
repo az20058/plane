@@ -19,8 +19,7 @@ export default function Seat(props:any) {
     const router = useRouter();
     const param = useSearchParams();
     const quantity = parseInt(param.get("quantity")||"0");
-    // const type = param.get("type");
-    // const [seats, setSeats] = useState<string[]>([]);
+    const type = param.get("type")||"";
     const [count, setCount] = useState<number>(quantity);
     const lastSelectedSeatRef = useRef<HTMLDivElement>(null); 
 
@@ -30,6 +29,22 @@ export default function Seat(props:any) {
             lastSelectedSeatRef.current.scrollIntoView({ behavior: 'smooth', inline: 'end' });
         }
     }, [selectedSeatsId]);
+
+    useEffect(()=>{
+        if (type) {
+            const seats = param.get("seats")?.split(",");
+            const codes = param.get("seatCode")?.split(",");
+
+            if (seats && codes && seats.length === codes.length) {
+                const seatObjects = seats.map((seat, index) => ({
+                    seatCode: codes[index],
+                    seatNum: parseInt(seat)
+                }));
+                
+                setSelectedSeatsId(seatObjects);  // 객체 배열을 설정
+            }
+        }
+    }, [])
 
     function handleReservation(seatNum: number, seatCode: string) {
         if (selectedSeatsId.some(seat=>seat.seatNum===seatNum)) {
@@ -82,8 +97,8 @@ export default function Seat(props:any) {
         <div className={styles.pageWrapper}>
             <div className={styles.resSeatPage}>
                 <ResSeat selectedSeatsId={selectedSeatsId} handleReservation={handleReservation}/>
-                <ResList selectedSeatsId={selectedSeatsId} handleReservation={handleReservation} lastSelectedSeatRef={lastSelectedSeatRef}/>
-                <NextBtn handleSubmit={handleSubmit} msg="좌석 예매하기"/>
+                <ResList selectedSeatsId={selectedSeatsId} handleReservation={handleReservation} lastSelectedSeatRef={lastSelectedSeatRef} type={type}/>
+                {type?<></>:<NextBtn handleSubmit={handleSubmit} msg="좌석 예매하기"/>}
             </div>
         </div>
     )

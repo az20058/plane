@@ -19,7 +19,7 @@ export default function Navbar() {
                     <Link href='/signUp'>회원가입</Link>
                 </div>
                 <div className={styles.menuItem}>
-                    <button>구매 내역</button>
+                    <Link href='/checkRes'>구매 내역</Link>
                 </div>
             </div>
             <UserInfo/>

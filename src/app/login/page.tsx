@@ -25,7 +25,6 @@ export default function Login() {
               }
             })
               .then(res=>{
-                cookie.set("isLogin", "true");
                 cookie.set("username", res.data.split(' ')[0]);
               })
               .catch(err=>{

@@ -187,8 +187,11 @@
 }
 
 .resSeat label {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 800;
     margin-left: 30px;
 }
 
+.resSeat div:first-child {
+    width: 80%;
+}

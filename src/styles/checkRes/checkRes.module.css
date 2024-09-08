@@ -1,0 +1,108 @@
+.flightsHeader {
+    background-color: #2067D1;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-around;
+    padding: 0 40px;
+    border-radius: 11px;
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.flightsHeader div {
+    width: 11%;
+    text-align: center;
+}
+
+.flightsHeader div:first-child {
+    width: 14%;
+}
+
+.flightsHeader div:nth-child(5) {
+    width: 16%;
+}
+
+.flightItemWrapper {
+    width: 84%;
+    margin: 96px auto 50px auto;
+}
+
+.groupFlightItem {
+    margin-bottom: 60px;
+}
+
+.flightItem {
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color:#fff;
+    padding : 0 40px;
+    font-size: 'Pretendard';
+    border : solid #888888 0.5px;
+    border-radius: 11px;
+    margin: 4px auto;
+    height: 166px;
+    box-shadow: 0 0 7px 0 #888888;
+    margin-top: 20px;
+}
+
+.flightItem > div {
+  width: 11%;
+  text-align: center;
+  font-size: 24px;
+}
+
+.flightItem > div:first-child {
+    width: 14%;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkResBtn {
+    color: white;
+    border-radius: 7px;
+    background-color: #2067D1;
+    font-size: 14px;
+    font-weight: 700;
+    height: 37px;
+    width: 70%;
+}
+
+.flightItem > div:nth-child(5) {
+  width: 16%;
+  display: flex;
+  justify-content: center;
+}
+
+.notSearched {
+  width: 100%;
+  height: 162px;
+  margin-top: 17px;
+  background: linear-gradient(101deg, rgba(158, 158, 158, 0.3), rgba(236, 236, 236, 0.3));
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 177px;
+}
+
+.textWrapper {
+  font-family: 'Pretendard';
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  color: #5E86E5;
+}
+
+.textWrapper span {
+  font-weight: 700;
+}
+
+.textWrapper span:nth-child(2) {
+  font-family: 'Pretendard-extraBold';
+}

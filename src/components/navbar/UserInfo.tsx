@@ -1,7 +1,6 @@
 "use client";
 import styles from '@/styles/navbar.module.css';
 import { useEffect, useState } from 'react';
-import cookie from 'js-cookie';
 import { getLogin } from '@/hooks/getLogin';
 import { usePathname } from 'next/navigation';
 

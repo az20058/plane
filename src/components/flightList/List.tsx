@@ -57,7 +57,7 @@ export default async function FlightList({param}:any) {
                 list2.map((data, index)=>{
                     return(
                         <div className={styles.flightItem} key={index}>
-                            <AirLine airlineNm={data.airlineNm}/>
+                            <AirLine airlineNm={data.airlineNm} flightCode="" height={80}/>
                             <div>
                                 <span style={{fontWeight:"600"}}>{data.vihicleId}</span>
                             </div>
@@ -78,7 +78,7 @@ export default async function FlightList({param}:any) {
                             </div>
                             {/* <Price economyCharge={data.economyCharge} prestigeCharge={data.prestigeCharge}/> */}
                             <Price economyCharge={data.economyCharge}/>
-                            <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr}/>   
+                            <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr} msg="예약하기"/>   
                         </div>
                     )    
                 })

@@ -2,12 +2,13 @@ import styles from '@/styles/reservation/seat.module.css';
 import { MutableRefObject } from 'react';
 
 interface SeatProps {
-    selectedSeatsId: any[],
+    selectedSeatsId: any[];
     handleReservation: (seatNum: number, seatCode: string) => void;
-    lastSelectedSeatRef: MutableRefObject<HTMLDivElement|null>
+    lastSelectedSeatRef: MutableRefObject<HTMLDivElement|null>;
+    type: string;
 }
 
-export default function ResList({selectedSeatsId, handleReservation, lastSelectedSeatRef}:SeatProps) {
+export default function ResList({selectedSeatsId, handleReservation, lastSelectedSeatRef, type}:SeatProps) {
     return (
         <div className={styles.resList}>
             <div className={styles.resSeatsContainer}>
@@ -25,7 +26,7 @@ export default function ResList({selectedSeatsId, handleReservation, lastSelecte
                                 <label>{seat.seatCode}</label>
                             </div>
                             <div>
-                                <button onClick={()=>handleReservation(seat.seatNum, seat.seatCode)}/>
+                                <button style={type?{display:"none"}:{}} onClick={()=>handleReservation(seat.seatNum, seat.seatCode)}/>
                             </div>
                         </div>
                     ))}

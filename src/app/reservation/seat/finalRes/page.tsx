@@ -37,7 +37,6 @@ export default function finalRes(props:any) {
     const [passengers, setPassengers] = useState<PassengerForm[]>([]);
     console.log(cookie.get("username"));
     console.log(passengers);
-    const [currentTime, setCurrentTime] = useState('');
 
     async function handleSubmit() {
         for(let passenger of passengers) {
@@ -77,7 +76,7 @@ export default function finalRes(props:any) {
             const birth = cookie.get("birth"+i);
             const gender = cookie.get("gender"+i);
             const seatCode = cookie.get("seatCode"+i);
-            const num = param.selectedSeatsId[i];
+            const num = !Array.isArray(param.selectedSeatsId)?param.selectedSeatsId:param.selectedSeatsId[i];
             const username = cookie.get("username")||email;
 
             const passenger = {
