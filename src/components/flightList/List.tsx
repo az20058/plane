@@ -58,7 +58,7 @@ export default async function FlightList({param}:any) {
                 list2.map((data, index)=>{
                     return(
                         <div className={styles.flightItem} key={index}>
-                            <AirLine airlineNm={data.airlineNm} flightCode="" height={80}/>
+                            <AirLine airlineNm={data.airlineNm} flightCode="" height={80} width={180}/>
                             <div>
                                 <span style={{fontWeight:"600"}}>{data.vihicleId}</span>
                             </div>

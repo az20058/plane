@@ -77,7 +77,7 @@ export default function finalRes(props:any) {
             const gender = cookie.get("gender"+i);
             const seatCode = cookie.get("seatCode"+i);
             const num = !Array.isArray(param.selectedSeatsId)?param.selectedSeatsId:param.selectedSeatsId[i];
-            const username = cookie.get("username")||email;
+            const username = cookie.get("username")||cookie.get("email0");
 
             const passenger = {
                 num,

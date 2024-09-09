@@ -1,7 +1,7 @@
 "use client";
 
 interface Click {
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onClick: () => void;
 }
 
 export default function SearchBtn({onClick}:Click) {

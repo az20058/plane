@@ -66,7 +66,7 @@ export default async function ResList() {
                                     <span>{item.seatCode}</span>
                                     <CheckSeat flightId={item.flightNum} seatNum={items.map(item=>item.seatNum)} seatCode={items.map(item=>item.seatCode)}/>
                                 </div>
-                                <AirLine airlineNm={item.airLine} flightCode={item.flightId.slice(8)} height={36} />
+                                <AirLine airlineNm={item.airLine} flightCode={item.flightId.slice(8)} height={36} width={180}/>
                                 <div>
                                     <div className={styles.fromTo}>
                                         <p>{item.depCity}</p>
