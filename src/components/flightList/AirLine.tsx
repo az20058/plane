@@ -16,7 +16,7 @@ export default function AirLine({airlineNm, flightCode, height}:AirLine) {
     }
     
     return (
-        <div style={{gap:"11px 0", display:'flex', flexDirection:'column'}}>
+        <div style={{display:'flex', flexDirection:'column'}}>
             {/* <span>{airlineNm}</span> */}
             <Image src={logo[airlineNm]} alt='logo' width={180} height={height}/>
             {flightCode?<span>{flightCode}</span>:""}

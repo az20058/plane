@@ -8,11 +8,16 @@ import { usePathname, useRouter } from "next/navigation";
 export default function LoginOrLogout() {
     const [username, setUsername] = useState<string|undefined>('');
     const pathname = usePathname();
+    const [mounted, setMounted] = useState(false);
     const router = useRouter();
 
     useEffect(()=>{
         setUsername(getLogin());
     }, [pathname])
+    
+    useEffect(() => {
+        setMounted(true);
+      }, []);
 
     function handleLogout() {
         cookie.remove("username");
@@ -23,6 +28,6 @@ export default function LoginOrLogout() {
     }
     
     return (
-        username?<button onClick={handleLogout}>로그아웃</button>:<Link href='/login'>로그인</Link>
+        mounted&&username?<button onClick={handleLogout}>로그아웃</button>:<Link href='/login'>로그인</Link>
     )
 }

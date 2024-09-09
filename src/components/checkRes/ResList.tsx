@@ -3,10 +3,10 @@ import styles from '@/styles/checkRes/checkRes.module.css';
 import Image from "next/image";
 import direction from '@/../public/images/direction.svg';
 import Price from "@/components/flightList/price";
-import Pay from "@/components/flightList/pay";
 import axios from "axios";
 import { cookies } from "next/headers";
 import CheckSeat from "@/components/checkRes/CheckSeat";
+import Refund from "./Refund";
 
 interface ResProps {
     buyTime: string;
@@ -83,7 +83,7 @@ export default async function ResList() {
                                     </div>
                                 </div>
                                 <Price economyCharge={parseInt(item.payPrice)} />
-                                <Pay msg="환불 신청" />
+                                <Refund msg="환불 신청" data={items.map(item=>item.seatNum)}/>
                             </div>
                         );
                     })}

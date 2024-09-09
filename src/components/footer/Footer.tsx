@@ -14,7 +14,7 @@ export default function Footer() {
                 </div>
                 <div className={styles.menu}>
                     <span>내역</span>
-                    <button>구매 내역</button>
+                    <Link href='/checkRes'>구매 내역</Link>
                     <button>탑승객 정보</button>
                 </div>
                 <div className={styles.menu}>

@@ -2,6 +2,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useStore } from "@/store/store";
+import BlueButton from "@/containers/BluButton";
 
 interface FlightProps {
     planeId: string,
@@ -38,11 +39,6 @@ export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, 
     }
 
     return (
-        <div>
-            <button onClick={processPay}
-            style={{backgroundColor:"#2067D1", color:"white", borderRadius:"9px", padding:"12px 20px", fontSize:"18px",
-            fontFamily:"Pretendard", fontWeight:"700"
-            }}>{msg}</button>
-        </div>
+        <BlueButton handleSubmit={processPay} msg={msg}/>
     )
 }
