@@ -4,7 +4,11 @@ import slogan from '../../../public/images/slogan.svg';
 import maintext from '../../../public/images/maintext.svg';
 import start from '../../../public/images/start.svg';
 
-export default function Main() {
+interface SetFunc {
+    setView: (arg:boolean)=>void; 
+}
+
+export default function Main({setView}:SetFunc) {
     return (
         <div className={styles.pageWrapper}>
             <div className={styles.sloganWrapper}>
@@ -13,7 +17,7 @@ export default function Main() {
             <div className={styles.textWrapper}>
                 <Image src={maintext} alt='maintext'/>
             </div>
-            <div className={styles.start}>
+            <div onClick={()=>setView(true)} className={styles.start}>
                 <Image src={start} alt='startBtn'/>
             </div>
         </div>
