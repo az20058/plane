@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from '../../styles/home/checkRes.module.css';
-import planeIcon2 from '../../../public/images/planeIcon2.svg';
 
 interface props {
     msg1: string,

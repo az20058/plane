@@ -7,6 +7,7 @@ import Price from "./price";
 import AirLine from "./AirLine";
 import searchIcon from '@/../public/images/searchIcon.svg';
 import SearchedNone from "./SearchedNone";
+import { cookies } from "next/headers";
 
 interface flight {
     economyCharge: number,
@@ -18,6 +19,8 @@ interface flight {
 }
 
 export default async function FlightList({param}:any) {
+    const cookie = cookies();
+    const username = cookie.get("username")?.value;
     const currentTime = new Date();
     const year = currentTime.getFullYear();
     const month = ("0"+(currentTime.getMonth()+1)).slice(-2);
@@ -79,7 +82,7 @@ export default async function FlightList({param}:any) {
                             </div>
                             {/* <Price economyCharge={data.economyCharge} prestigeCharge={data.prestigeCharge}/> */}
                             <Price economyCharge={data.economyCharge}/>
-                            <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr} msg="예약하기"/>   
+                            <Pay planeId={formattedTime.slice(0, 8) + data.vihicleId} depTime={data.depPlandTime} arrTime={data.arrPlandTime} date={param.date} airLine={data.airlineNm} depCity={param.korDep} arrCity={param.korArr} msg="예약하기" payPrice={username?data.economyCharge*0.9:data.economyCharge}/>   
                         </div>
                     )    
                 })

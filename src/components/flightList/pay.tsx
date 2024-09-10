@@ -1,7 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
-import { useStore } from "@/store/store";
 import BlueButton from "@/containers/BluButton";
 
 interface FlightProps {
@@ -12,13 +11,13 @@ interface FlightProps {
     airLine: string,
     depCity: string,
     arrCity: string,
-    msg: string
+    msg: string,
+    payPrice: number
 }
 
-export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, arrCity, msg}:FlightProps) {
+export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, arrCity, msg, payPrice}:FlightProps) {
     const param = useSearchParams();
     const quantity = param.get("quantity");
-    const {price} = useStore();
     const router = useRouter();
 
     //console.log(flightId);
@@ -29,7 +28,7 @@ export default function Pay({planeId, depTime, arrTime, date, airLine, depCity, 
             flightId: planeId,
             depTime,
             arrTime,
-            payPrice: price,
+            payPrice,
             depCity,
             arrCity
         });
