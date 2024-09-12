@@ -15,7 +15,7 @@ export default function UserInfo() {
 
     useEffect(() => {
         setMounted(true);
-      }, []);
+    }, []);
     
     return (
         mounted&&username?

@@ -31,6 +31,7 @@ export default function Login() {
                 console.error("userDto error", err);
               })
             router.push(`/`);
+            router.refresh();
           })
           .catch(err=>{
             console.error("login error", err);

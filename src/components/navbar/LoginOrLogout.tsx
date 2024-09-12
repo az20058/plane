@@ -10,10 +10,12 @@ export default function LoginOrLogout() {
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
     const router = useRouter();
+    console.log(getLogin());
 
     useEffect(()=>{
         setUsername(getLogin());
-    }, [pathname])
+        console.log("change path");
+    }, [pathname]);
     
     useEffect(() => {
         setMounted(true);
