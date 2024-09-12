@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { getLogin } from "@/hooks/getLogin";
+import { usegetLogin } from "@/hooks/getLogin";
 import cookie from 'js-cookie';
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -10,10 +10,9 @@ export default function LoginOrLogout() {
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
     const router = useRouter();
-    console.log(getLogin());
 
     useEffect(()=>{
-        setUsername(getLogin());
+        setUsername(usegetLogin());
         console.log("change path");
     }, [pathname]);
     

@@ -1,5 +1,5 @@
 import cookie from 'js-cookie';
 
-export function getLogin() {
+export function usegetLogin() {
     return cookie.get("username");
 }

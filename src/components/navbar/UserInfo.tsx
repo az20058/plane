@@ -1,7 +1,7 @@
 "use client";
 import styles from '@/styles/navbar.module.css';
 import { useEffect, useState } from 'react';
-import { getLogin } from '@/hooks/getLogin';
+import { usegetLogin } from '@/hooks/getLogin';
 import { usePathname } from 'next/navigation';
 
 export default function UserInfo() {
@@ -10,7 +10,7 @@ export default function UserInfo() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(()=>{
-        setUsername(getLogin());
+        setUsername(usegetLogin());
     }, [pathname])
 
     useEffect(() => {
