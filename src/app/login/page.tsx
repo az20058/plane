@@ -19,7 +19,7 @@ export default function Login() {
             }
         })
         .then(res=>{
-            axios.get('http://localhost:8080/userDto', {
+            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/userDto`, {
               headers: {
                 Authorization: res.headers['authorization']
               }

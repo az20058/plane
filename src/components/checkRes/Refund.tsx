@@ -51,6 +51,7 @@ export default function Refund({msg, data}:RefundProp) {
                     })
                 })
                 alert("환불 처리 되었습니다.");
+                router.refresh();
             }
         }
     }
