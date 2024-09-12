@@ -10,6 +10,12 @@ export default function Login() {
     const router = useRouter();
     const idRef = useRef<HTMLInputElement>(null);
     const pwRef = useRef<HTMLInputElement>(null);
+
+    function handleKeyDown(event: React.KeyboardEvent) {
+      if (event.key === 'Enter') {
+          handleSubmit();
+      }
+    }
     
     function handleSubmit() {
         axios.post((`${process.env.NEXT_PUBLIC_SERVER_URL}/login`), null, {
@@ -33,10 +39,8 @@ export default function Login() {
             router.push(`/`);
             router.refresh();
           })
-          .catch(err=>{
-            console.error("login error", err);
+          .catch(()=>{
             alert("아이디 또는 비밀번호가 일치하지 않습니다.");
-            // window.location.reload();
           })
     }
 
@@ -47,8 +51,8 @@ export default function Login() {
                     <span>로그인을 진행해 주세요</span>
                 </div>
                 <div className={styles.inputWrapper}>
-                    <input ref={idRef} placeholder='아이디를 입력하세요'/>
-                    <input type='password' ref={pwRef} placeholder='비밀번호를 입력하세요'/>
+                    <input ref={idRef} placeholder='아이디를 입력하세요' onKeyDown={handleKeyDown}/>
+                    <input type='password' ref={pwRef} placeholder='비밀번호를 입력하세요' onKeyDown={handleKeyDown}/>
                 </div>
                 <div className={styles.btnWrapper}>
                     <button onClick={handleSubmit}>계속 진행하기</button>
