@@ -115,7 +115,7 @@ export default function FinalRes(props:any) {
                 </div>
                 <div className={styles.footer}>
                     <div>
-                        <span>마지막으로, 탑승객 정보가 맞다면 '확정하기'를 눌러주세요</span>
+                        <span>마지막으로, 탑승객 정보가 맞다면 &lsquo;확정하기&rsquo;를 눌러주세요</span>
                     </div>
                     <div className={styles.line}/>
                 </div>
