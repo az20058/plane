@@ -20,23 +20,11 @@ interface PassengerForm {
     seatCode?: string
 }
 
-export default function finalRes(props:any) {
+export default function FinalRes(props:any) {
     const router = useRouter();
     const param = props.searchParams;
-    const [depTime, setDepTime] = useState(null);
-    const [arrTime, setArrTime] = useState(null);
-    const [seatCode, setSeatCode] = useState(null);
-    const [date, setDate] = useState(null);
-    const [date2, setDate2] = useState(null);
-    const [userName, setUserName] = useState(null);
-    const [isLogin, setIsLogin] = useState(null);
-    let seatNum;
-    //selectedSeatsId를 map함수를 통해 좌석들의 정보를 get해온다.
-    console.log(param.selectedSeatsId);
     const quantity = parseInt(param.quantity);
     const [passengers, setPassengers] = useState<PassengerForm[]>([]);
-    console.log(cookie.get("username"));
-    console.log(passengers);
 
     async function handleSubmit() {
         for(let passenger of passengers) {
