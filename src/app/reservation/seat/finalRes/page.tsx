@@ -5,7 +5,6 @@ import vectorGray from '@/../public/images/vectorGray.svg';
 import cookie from "js-cookie";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useStore } from "@/store/store";
 import Header from '@/components/Headers/Header';
 import Image from 'next/image';
 import NextBtn from '@/components/Buttons/NextBtn';
