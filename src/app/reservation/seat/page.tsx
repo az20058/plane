@@ -26,10 +26,18 @@ export default function Seat(props:any) {
     useEffect(() => {
         // 마지막 선택된 좌석으로 스크롤
         if (lastSelectedSeatRef.current) {
-            lastSelectedSeatRef.current.scrollIntoView({ behavior: 'smooth', inline: 'end' });
+            const parentElement = lastSelectedSeatRef.current.parentElement;
+    
+            if (parentElement) {
+                const offsetLeft = lastSelectedSeatRef.current.offsetLeft;
+                parentElement.scrollTo({
+                    left: offsetLeft,
+                    behavior: 'smooth',
+                });
+            }
         }
     }, [selectedSeatsId]);
-
+  
     useEffect(()=>{
         if (type) {
             const seats = param.get("seats")?.split(",");
