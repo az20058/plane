@@ -9,7 +9,6 @@ import Header from "@/components/Headers/Header";
 import Image from "next/image";
 import NextBtn from "@/components/Buttons/NextBtn";
 import { useStore } from "@/store/store";
-import { isArray } from "util";
 
 interface PassengerForm {
   num: number;
@@ -26,12 +25,12 @@ export default function FinalRes(props: any) {
   const param = props.searchParams;
   const quantity = parseInt(param.quantity);
   const [passengers, setPassengers] = useState<PassengerForm[]>([]);
-  const [arrive, setArr] = useState<string>();
-  const [depart, setDep] = useState<string>();
-  const [dCity, setDepCity] = useState<string>();
-  const [aCity, setArrCity] = useState<string>();
   const { arr, dep, depCity, arrCity } = useStore();
-  console.log(arr, dep);
+  console.log(dep, arr, depCity, arrCity);
+  const [arrive, setArr] = useState<string | undefined>(arr);
+  const [depart, setDep] = useState<string | undefined>(dep);
+  const [dCity, setDepCity] = useState<string | undefined>(depCity);
+  const [aCity, setArrCity] = useState<string | undefined>(arrCity);
 
   async function handleSubmit() {
     for (let passenger of passengers) {
@@ -116,9 +115,9 @@ export default function FinalRes(props: any) {
         <div className={styles.fromToWrapper}>
           <div className={styles.fromTo}>
             <span>
-              {depart && depart.slice(0, 4)}|{depart && depart.slice(4, 6)}|
-              {depart && depart.slice(6, 8)} {depart && depart.slice(8, 10)}시{" "}
-              {depart && depart.slice(10, 12)}분 | {dCity && dCity}
+              {depart && dep.slice(0, 4)}|{depart && depart.slice(4, 6)}|
+              {depart && dep.slice(6, 8)} {depart && depart.slice(8, 10)}시{" "}
+              {depart && dep.slice(10, 12)}분 | {dCity && dCity}
             </span>
             <Image src={vectorGray} alt="grayVector" />
             <span>

@@ -49,8 +49,8 @@ export default function Pay({
     );
     const id = await res.data;
 
-    setArr(arrTime);
-    setDep(depTime);
+    setArr(arrTime.toString());
+    setDep(depTime.toString());
     setDepCity(depCity);
     setArrCity(arrCity);
 
