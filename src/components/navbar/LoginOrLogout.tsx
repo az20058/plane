@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
-  username: string | undefined;
+  username?: string | undefined;
 }
 
 export default function LoginOrLogout({ username }: Props) {
