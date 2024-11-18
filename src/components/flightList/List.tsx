@@ -21,20 +21,10 @@ interface flight {
 export default async function FlightList({ param }: any) {
   const cookie = cookies();
   const username = cookie.get("username")?.value;
-  const currentTime2 = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    timeZone: "Asia/Seoul",
-    year: "numeric", // 수정: 문자열이 아닌 키워드 값 사용
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  };
-  const formatter = new Intl.DateTimeFormat("ko-KR", options);
-  const formattedDate = formatter.format(currentTime2);
-  const currentTime = new Date(formattedDate);
-  console.log(currentTime);
+
+  const currentTimeUTC = new Date();
+  const KSTOffset = 9 * 60 * 60 * 1000; // 9시간 (밀리초)
+  const currentTime = new Date(currentTimeUTC.getTime() + KSTOffset);
 
   const year = currentTime.getFullYear();
   const month = ("0" + (currentTime.getMonth() + 1)).slice(-2);
