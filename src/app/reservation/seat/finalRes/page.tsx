@@ -116,15 +116,15 @@ export default function FinalRes(props: any) {
         <div className={styles.fromToWrapper}>
           <div className={styles.fromTo}>
             <span>
-              {depart && dep.slice(0, 4)}|{depart && dep.slice(4, 6)}|
-              {depart && dep.slice(6, 8)} {depart && dep.slice(8, 10)}시{" "}
-              {depart && dep.slice(10, 12)}분 | {dCity && depCity}
+              {depart && depart.slice(0, 4)}|{depart && depart.slice(4, 6)}|
+              {depart && depart.slice(6, 8)} {depart && depart.slice(8, 10)}시{" "}
+              {depart && depart.slice(10, 12)}분 | {dCity && dCity}
             </span>
             <Image src={vectorGray} alt="grayVector" />
             <span>
-              {arrive && arr.slice(0, 4)}|{arrive && arr.slice(4, 6)}|
-              {arrive && arr.slice(6, 8)} {arrive && arr.slice(8, 10)}시{" "}
-              {arrive && arr.slice(10, 12)}분 | {aCity && arrCity}
+              {arrive && arrive.slice(0, 4)}|{arrive && arrive.slice(4, 6)}|
+              {arrive && arrive.slice(6, 8)} {arrive && arrive.slice(8, 10)}시{" "}
+              {arrive && arrive.slice(10, 12)}분 | {aCity && aCity}
             </span>
           </div>
         </div>
