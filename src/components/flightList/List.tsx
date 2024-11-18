@@ -34,6 +34,7 @@ export default async function FlightList({ param }: any) {
   const formatter = new Intl.DateTimeFormat("ko-KR", options);
   const formattedDate = formatter.format(currentTime2);
   const currentTime = new Date(formattedDate);
+  console.log(currentTime);
 
   const year = currentTime.getFullYear();
   const month = ("0" + (currentTime.getMonth() + 1)).slice(-2);
